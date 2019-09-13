@@ -1,6 +1,6 @@
 
 var stateArray = ["start", "pick", "add", "sub", "reveal", "end"];
-var symbolArray = [];
+var symbolArray = ["!", "@", "#", "$", "%", "^", "&", "*", ")("];
 var counter = 0;
 
 var largeText = document.getElementById('largeText');
@@ -46,7 +46,7 @@ function render(){
             break;
 
         case "reveal":
-            console.log('reaveal');
+            console.log('reveal');
             largeText.innerHTML = symbolArray;
             squareButton.innerHTML = 'Next';
             smallText.innerHTML = 'Find your new number.  Note the symbol beside the number';
@@ -55,15 +55,15 @@ function render(){
 
         case "end":
             console.log('end');
-            largeText.innerHTML = symbolArray;
+            largeText.innerHTML = numberArray;
             squareButton.innerHTML = 'Next';
             smallText.style.display = 'none';
             circleButton.innerHTML = 'Reset';
             break;
     }
-
-        
-
 }
 
+
 render();
+
+console.log(Math.floor(Math.random() * 10));
