@@ -35,6 +35,13 @@ function render(){
             smallText.innerHTML = 'Ex: 14 is 1 + 4 = 5  click next to proceed';
             circleButton.innerHTML = 'Back';
 
+        case "sub":
+            console.log('sub');
+            largeText.innerHTML = 'Subtract new number from the original number';
+            squareButton.innerHTML = 'Next';
+            smallText.innerHTML = 'Ex: 14 - 5 = 9  click next to proceed';
+            circleButton.innerHTML = 'Back';
+
     }
 
         
