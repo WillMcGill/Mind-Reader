@@ -1,5 +1,6 @@
 
 var stateArray = ["start", "pick", "add", "sub", "reveal", "end"];
+var symbolArray = [];
 var counter = 0;
 
 var largeText = document.getElementById('largeText');
@@ -11,7 +12,7 @@ var circleButton = document.getElementById('circleButton');
 function render(){
     console.log('render function');
 
-    switch(stateArray[2]){
+    switch(stateArray[5]){
         case "start":
             console.log('start');
             largeText.innerHTML = 'I can read your mind';
@@ -34,6 +35,7 @@ function render(){
             squareButton.innerHTML = 'Next';
             smallText.innerHTML = 'Ex: 14 is 1 + 4 = 5  click next to proceed';
             circleButton.innerHTML = 'Back';
+            break;
 
         case "sub":
             console.log('sub');
@@ -41,7 +43,23 @@ function render(){
             squareButton.innerHTML = 'Next';
             smallText.innerHTML = 'Ex: 14 - 5 = 9  click next to proceed';
             circleButton.innerHTML = 'Back';
+            break;
 
+        case "reveal":
+            console.log('reaveal');
+            largeText.innerHTML = symbolArray;
+            squareButton.innerHTML = 'Next';
+            smallText.innerHTML = 'Find your new number.  Note the symbol beside the number';
+            circleButton.innerHTML = 'Back';
+            break;
+
+        case "end":
+            console.log('end');
+            largeText.innerHTML = symbolArray;
+            squareButton.innerHTML = 'Next';
+            smallText.style.display = 'none';
+            circleButton.innerHTML = 'Reset';
+            break;
     }
 
         
