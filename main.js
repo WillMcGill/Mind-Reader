@@ -11,15 +11,7 @@ var circleButton = document.getElementById('circleButton');
 
 console.log();
 
-function increaseCount(){
-    counter++;
-    console.log(counter);
-}
 
-function decreaseCount(){
-    counter--;
-    console.log(counter);
-}
 
 function render(){
     console.log('render function');
@@ -28,8 +20,8 @@ function render(){
         case "start":
             console.log('start');
             largeText.innerHTML = 'I can read your mind';
-            squareButton.style.display = "none";
-            smallText.style.display = "none";
+            //squareButton.style.display = "none";
+            //smallText.style.display = "none";
             circleButton.innerHTML = 'Start';
             break;
 
@@ -68,7 +60,7 @@ function render(){
         case "end":
             console.log('end');
             largeText.innerHTML = symbolArray;
-            squareButton.innerHTML = 'Next';
+            //squareButton.innerHTML = 'Next';
             smallText.style.display = 'none';
             circleButton.innerHTML = 'Reset';
             break;
@@ -85,7 +77,7 @@ circleButton.addEventListener('click', function(){
             }
         else if (counter > 0 && counter < 5)
         {
-            counter++;
+            counter--;
             render();
             }
         else {
@@ -94,6 +86,11 @@ circleButton.addEventListener('click', function(){
             }
         });
 
+        squareButton.addEventListener('click', function(){
+            counter++;
+            render();
+        })
+        
 
 
 
