@@ -13,12 +13,18 @@ console.log();
 
 function increaseCount(){
     counter++;
+    console.log(counter);
+}
+
+function decreaseCount(){
+    counter--;
+    console.log(counter);
 }
 
 function render(){
     console.log('render function');
 
-    switch(stateArray[4]){
+    switch(stateArray[counter]){
         case "start":
             console.log('start');
             largeText.innerHTML = 'I can read your mind';
@@ -61,7 +67,7 @@ function render(){
 
         case "end":
             console.log('end');
-            largeText.innerHTML = numberArray;
+            largeText.innerHTML = symbolArray;
             squareButton.innerHTML = 'Next';
             smallText.style.display = 'none';
             circleButton.innerHTML = 'Reset';
@@ -72,6 +78,24 @@ function render(){
 
 render();
 
-circleButton.addEventListener('click', increaseCount);
+circleButton.addEventListener('click', function(){
+        if (counter == 0){
+            counter++;
+            render();
+            }
+        else if (counter > 0 && counter < 5)
+        {
+            counter++;
+            render();
+            }
+        else {
+            counter = 0;
+            render();
+            }
+        });
+
+
+
+
 
 console.log(Math.floor(Math.random() * 10));
