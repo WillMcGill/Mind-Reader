@@ -9,10 +9,16 @@ var smallText = document.getElementById('smallText');
 var circleButton = document.getElementById('circleButton');
 
 
+console.log();
+
+function increaseCount(){
+    counter++;
+}
+
 function render(){
     console.log('render function');
 
-    switch(stateArray[5]){
+    switch(stateArray[4]){
         case "start":
             console.log('start');
             largeText.innerHTML = 'I can read your mind';
@@ -47,7 +53,7 @@ function render(){
 
         case "reveal":
             console.log('reveal');
-            largeText.innerHTML = symbolArray;
+            largeText.innerHTML = symbolArray[Math.floor(Math.random() * 10)];
             squareButton.innerHTML = 'Next';
             smallText.innerHTML = 'Find your new number.  Note the symbol beside the number';
             circleButton.innerHTML = 'Back';
@@ -65,5 +71,7 @@ function render(){
 
 
 render();
+
+circleButton.addEventListener('click', increaseCount);
 
 console.log(Math.floor(Math.random() * 10));
