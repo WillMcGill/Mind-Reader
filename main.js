@@ -4,23 +4,53 @@ var symbolArray = ["!", "@", "#", "$", "%", "^", "&", "*", ")("];
 var counter = 0;
 
 var largeText = document.getElementById('largeText');
-var squareButton = document.getElementById('squareButton');
 var smallText = document.getElementById('smallText');
 var circleButton = document.getElementById('circleButton');
 
+var randomNum = Math.floor(Math.random() * 10)
 
-console.log();
+
+console.log(randomNum);
 
 
+function printSymbols(n = randomNum){
+    
+    for (var i = 1; i < 100; i++){
+        console.log(n);
+        
+        if (n < 9 && n >= 0){
+            console.log(i + ' = ' + symbolArray[n]);
+            ++n;
+            
+        }
+        else if (n = 9){
+            var n = 0;
+            console.log(i + ' = ' + symbolArray[n]);
+        }
+        }
+    }
+
+/*function nineLoop(){
+        for (var n = randomNum; 1 <= 10; n++){
+            console.log(n + 'loop start');
+            if (n < 10){
+                console.log (n + 'is less than 10')
+            }
+
+            else (n = 1);
+        }
+    }*/
+    
 
 function render(){
     console.log('render function');
 
     switch(stateArray[counter]){
         case "start":
-            console.log('start');
+            console.log(counter);
             largeText.innerHTML = 'I can read your mind';
-            //squareButton.style.display = "none";
+            var squareButton = document.getElementById('squareButton');
+            squareButton.style.display = "none";
             //smallText.style.display = "none";
             circleButton.innerHTML = 'Start';
             break;
@@ -28,6 +58,8 @@ function render(){
         case "pick":
             console.log('pick');
             largeText.innerHTML = 'Pick a number between 1 and 99';
+            var squareButton = document.getElementById('squareButton');
+            squareButton.style.display = "block";
             squareButton.innerHTML = 'Next';
             smallText.innerHTML = 'When you have your number click next';
             circleButton.innerHTML = 'Back';
@@ -36,6 +68,7 @@ function render(){
         case "add":
             console.log('add');
             largeText.innerHTML = 'Add both digits to get a new number';
+            var squareButton = document.getElementById('squareButton');
             squareButton.innerHTML = 'Next';
             smallText.innerHTML = 'Ex: 14 is 1 + 4 = 5  click next to proceed';
             circleButton.innerHTML = 'Back';
@@ -44,6 +77,7 @@ function render(){
         case "sub":
             console.log('sub');
             largeText.innerHTML = 'Subtract new number from the original number';
+            var squareButton = document.getElementById('squareButton');
             squareButton.innerHTML = 'Next';
             smallText.innerHTML = 'Ex: 14 - 5 = 9  click next to proceed';
             circleButton.innerHTML = 'Back';
@@ -51,7 +85,8 @@ function render(){
 
         case "reveal":
             console.log('reveal');
-            largeText.innerHTML = symbolArray[Math.floor(Math.random() * 10)];
+            largeText.innerHTML = printSymbols();
+            var squareButton = document.getElementById('squareButton');
             squareButton.innerHTML = 'Next';
             smallText.innerHTML = 'Find your new number.  Note the symbol beside the number';
             circleButton.innerHTML = 'Back';
@@ -60,13 +95,13 @@ function render(){
         case "end":
             console.log('end');
             largeText.innerHTML = symbolArray;
-            //squareButton.innerHTML = 'Next';
+            var squareButton = document.getElementById('squareButton');
+            squareButton.style.display = "none";
             smallText.style.display = 'none';
             circleButton.innerHTML = 'Reset';
             break;
     }
 }
-
 
 render();
 
@@ -86,13 +121,8 @@ circleButton.addEventListener('click', function(){
             }
         });
 
-        squareButton.addEventListener('click', function(){
+squareButton.addEventListener('click', function(){
             counter++;
             render();
         })
-        
-
-
-
-
-console.log(Math.floor(Math.random() * 10));
+                
