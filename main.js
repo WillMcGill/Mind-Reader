@@ -95,7 +95,7 @@ function render(){
 
         case "end":
             console.log('end');
-            largeText.innerHTML = symbolArray;
+            largeText.innerHTML = symbolArray[randomNum - (9 - randomNum)];
             var squareButton = document.getElementById('squareButton');
             squareButton.style.display = "none";
             smallText.style.display = 'none';
