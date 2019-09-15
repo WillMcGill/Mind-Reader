@@ -12,53 +12,40 @@ var randomNum = Math.floor(Math.random() * 10)
 
 console.log("random number is " + randomNum);
 
+var n = randomNum;
 
 function printSymbols(n = randomNum){
     
-    for (var i = 1; i < 100; i++){
+    for (var i = 1; i < 100; i++){                      // set function to run 99 times
         console.log(n);
         
-        if (n < 8 && n >= 0){
+        if (n < 8 && n >= 0){                           // increment random number
             console.log(i + ' = ' + symbolArray[n]);
+            var newLine = document.createElement("div");
+            var resultnode = document.createTextNode(i + ' = ' + symbolArray[n]);
+            newLine.appendChild(resultnode);
+            document.getElementById("largeText").appendChild(newLine);
             ++n;        
         }
-        else if (n = 8){
+        else if (n = 8){                                // reset random number to 0, cannot be higher than 8
             console.log(i + ' = ' + symbolArray[n]);
+            var newLine = document.createElement("div");
+            var resultnode = document.createTextNode(i + ' = ' + symbolArray[n]);
+            newLine.appendChild(resultnode);
+            document.getElementById("largeText").appendChild(newLine);
             var n = 0;          
-        }
-        //largeText.innerHTML = i + ' = ' + symbolArray[n];
-        
-        var newLine = document.createElement("div");
-        var resultnode = document.createTextNode(i + ' = ' + symbolArray[n]);
-        newLine.appendChild(resultnode);
-        document.getElementById("largeText").appendChild(newLine);
+        }      
         }
     }
 
-
-
-/*function nineLoop(){
-        for (var n = randomNum; 1 <= 10; n++){
-            console.log(n + 'loop start');
-            if (n < 10){
-                console.log (n + 'is less than 10')
-            }
-
-            else (n = 1);
-        }
-    }*/
-    
-
+// Render states
 function render(){
- //   console.log('render function');
 
     switch(stateArray[counter]){
         case "start":
- //           console.log(counter);
             largeText.innerHTML = 'I can read your mind';
             var squareButton = document.getElementById('squareButton');
             squareButton.style.display = "none";
-            //smallText.style.display = "none";
             circleButton.innerHTML = 'Start';
             break;
 
@@ -68,6 +55,7 @@ function render(){
             var squareButton = document.getElementById('squareButton');
             squareButton.style.display = "block";
             squareButton.innerHTML = 'Next';
+            smallText.style.display = 'block';
             smallText.innerHTML = 'When you have your number click next';
             circleButton.innerHTML = 'Back';
             break;
@@ -92,7 +80,7 @@ function render(){
 
         case "reveal":
             console.log('reveal');
-            document.getElementById.largeText.innerHTML = printSymbols();
+            document.getElementById.resultnode.innerHTML = printSymbols();
             var squareButton = document.getElementById('squareButton');
             squareButton.innerHTML = 'Next';
             smallText.innerHTML = 'Find your new number.  Note the symbol beside the number';
@@ -100,8 +88,8 @@ function render(){
             break;
 
         case "end":
-            console.log('end');
-            largeText.innerHTML = symbolArray[randomNum - (9 - randomNum)];
+            console.log(randomNum - 1);
+            largeText.innerHTML = symbolArray[randomNum - 1];
             var squareButton = document.getElementById('squareButton');
             squareButton.style.display = "none";
             smallText.style.display = 'none';
@@ -109,8 +97,11 @@ function render(){
             break;
     }
 }
+// First render on page load
 
 render();
+
+// Button Functions - +/- counter
 
 circleButton.addEventListener('click', function(){
         if (counter == 0){
