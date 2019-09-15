@@ -1,0 +1,17 @@
+body{
+    background-color: green;
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 45vh 15vh 20vh 15vh 10vh;
+}
+
+.container1{
+    grid-column-start: 2;
+    height:50vh;
+    overflow: scroll;
+}
+
+body.circleButton{
+    grid-column-start: 3;
+    grid-row-start: 4;
+}
