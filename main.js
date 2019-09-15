@@ -18,14 +18,15 @@ function printSymbols(n = randomNum){
     for (var i = 1; i < 100; i++){
         console.log(n);
         
-        if (n < 9 && n >= 0){
+        if (n < 8 && n >= 0){
             console.log(i + ' = ' + symbolArray[n]);
             ++n;
             
         }
-        else if (n = 9){
-            var n = 0;
+        else if (n = 8){
             console.log(i + ' = ' + symbolArray[n]);
+            var n = 0;
+            
         }
         }
     }
