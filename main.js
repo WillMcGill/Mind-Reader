@@ -7,16 +7,29 @@ var largeText = document.getElementById('largeText');
 var smallText = document.getElementById('smallText');
 var circleButton = document.getElementById('circleButton');
 
-var randomNum = Math.floor(Math.random() * 10);
-/*var randomNum = function getRandom(){
-    var ran = Math.floor(Math.random() * 10);
-    if (ran = 0){
-        var ran = Math.floor(Math.random() * 10);
-        getRandom();}
-    else randomNum = ran;
-    }*/
-var randomNumDis = randomNum;
 
+var randomNum = Math.floor(Math.random() * 10);
+
+console.log (randomNum);
+
+function checkRandom (){                            // check is random number is 9, generate new #
+    if (randomNum == 9){
+        randomNum = Math.floor(Math.random() * 10);
+        console.log(randomNum);
+        checkRandom();
+}}
+
+checkRandom();
+
+function isZero(){                                  // check if random number is 0, if so, set to 8
+    if (randomNum == 0){
+        randomNum = 8;
+        return randomNum;
+    }
+    else {randomNum = randomNum - 1;
+        return randomNum;
+    };
+}
 
 console.log("random number is " + randomNum);
 
@@ -25,7 +38,7 @@ var n = randomNum;
 function printSymbols(n = randomNum){
     
     for (var i = 1; i < 100; i++){                      // set function to run 99 times
-        console.log(n);
+        //console.log(n);
         
         if (n < 8 && n >= 0){                           // increment random number
             console.log(i + ' = ' + symbolArray[n]);
@@ -45,14 +58,8 @@ function printSymbols(n = randomNum){
         }      
         }
     }
-    function testIfZero(randomNum){
-        if (randomNum = 0){
-            randomNum = randomNum + 1;
-        }
-        else {
-            randomNum = randomNum;
-        }
-    }
+  
+    
 // Render states
 function render(){
 
@@ -106,11 +113,12 @@ function render(){
 
         case "end":
             console.log(randomNum - 1);
-            largeText.innerHTML = 'Your symbol is:   ' + symbolArray[randomNum - 1];
+            largeText.innerHTML = 'Your symbol is:   ' + symbolArray[isZero()];
             var squareButton = document.getElementById('squareButton');
             squareButton.style.display = "none";
             smallText.style.display = 'none';
             circleButton.innerHTML = 'Reset';
+            randomNum = randomNum = Math.floor(Math.random() * 10);  //generate new random number
             break;
     }
 }
