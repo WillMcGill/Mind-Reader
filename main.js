@@ -11,7 +11,7 @@ var randomNum = Math.floor(Math.random() * 10);
 
 console.log (randomNum);
 
-function checkRandom (){
+function checkRandom (){                            // check is random number is 9, generate new #
     if (randomNum == 9){
         randomNum = Math.floor(Math.random() * 10);
         console.log(randomNum);
@@ -19,6 +19,17 @@ function checkRandom (){
 }}
 
 checkRandom();
+
+function isZero(){
+    if (randomNum == 0){
+        randomNum = 8;
+        return randomNum;
+    }
+    else {randomNum = randomNum - 1;
+        return randomNum;
+    };
+}
+
 
 var randomNumDis = randomNum;
 
@@ -105,7 +116,7 @@ function render(){
 
         case "end":
             console.log(randomNum - 1);
-            largeText.innerHTML = 'Your symbol is:   ' + symbolArray[randomNum - 1];
+            largeText.innerHTML = 'Your symbol is:   ' + symbolArray[isZero()];
             var squareButton = document.getElementById('squareButton');
             squareButton.style.display = "none";
             smallText.style.display = 'none';
