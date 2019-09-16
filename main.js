@@ -7,6 +7,7 @@ var largeText = document.getElementById('largeText');
 var smallText = document.getElementById('smallText');
 var circleButton = document.getElementById('circleButton');
 
+
 var randomNum = Math.floor(Math.random() * 10);
 
 console.log (randomNum);
@@ -20,7 +21,7 @@ function checkRandom (){                            // check is random number is
 
 checkRandom();
 
-function isZero(){
+function isZero(){                                  // check if random number is 0, if so, set to 8
     if (randomNum == 0){
         randomNum = 8;
         return randomNum;
@@ -30,10 +31,6 @@ function isZero(){
     };
 }
 
-
-var randomNumDis = randomNum;
-
-
 console.log("random number is " + randomNum);
 
 var n = randomNum;
@@ -41,7 +38,7 @@ var n = randomNum;
 function printSymbols(n = randomNum){
     
     for (var i = 1; i < 100; i++){                      // set function to run 99 times
-        console.log(n);
+        //console.log(n);
         
         if (n < 8 && n >= 0){                           // increment random number
             console.log(i + ' = ' + symbolArray[n]);
@@ -121,6 +118,7 @@ function render(){
             squareButton.style.display = "none";
             smallText.style.display = 'none';
             circleButton.innerHTML = 'Reset';
+            randomNum = randomNum = Math.floor(Math.random() * 10);  //generate new random number
             break;
     }
 }
