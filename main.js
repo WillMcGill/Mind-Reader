@@ -7,7 +7,15 @@ var largeText = document.getElementById('largeText');
 var smallText = document.getElementById('smallText');
 var circleButton = document.getElementById('circleButton');
 
-var randomNum = Math.floor(Math.random() * 10)
+var randomNum = Math.floor(Math.random() * 10);
+/*var randomNum = function getRandom(){
+    var ran = Math.floor(Math.random() * 10);
+    if (ran = 0){
+        var ran = Math.floor(Math.random() * 10);
+        getRandom();}
+    else randomNum = ran;
+    }*/
+var randomNumDis = randomNum;
 
 
 console.log("random number is " + randomNum);
@@ -37,7 +45,14 @@ function printSymbols(n = randomNum){
         }      
         }
     }
-
+    function testIfZero(randomNum){
+        if (randomNum = 0){
+            randomNum = randomNum + 1;
+        }
+        else {
+            randomNum = randomNum;
+        }
+    }
 // Render states
 function render(){
 
@@ -80,6 +95,8 @@ function render(){
 
         case "reveal":
             console.log('reveal');
+            largeText.style.display = "none";
+            largeText.style.display = "block";
             document.getElementById.resultnode.innerHTML = printSymbols();
             var squareButton = document.getElementById('squareButton');
             squareButton.innerHTML = 'Next';
@@ -89,7 +106,7 @@ function render(){
 
         case "end":
             console.log(randomNum - 1);
-            largeText.innerHTML = symbolArray[randomNum - 1];
+            largeText.innerHTML = 'Your symbol is:   ' + symbolArray[randomNum - 1];
             var squareButton = document.getElementById('squareButton');
             squareButton.style.display = "none";
             smallText.style.display = 'none';
@@ -123,4 +140,3 @@ squareButton.addEventListener('click', function(){
             counter++;
             render();
         })
-                
