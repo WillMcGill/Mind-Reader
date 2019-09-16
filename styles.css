@@ -15,9 +15,10 @@ body{
     vertical-align: center;
     font-size: 4vh;
     border-radius: 15px;
+    /*line-height:45vh;*/
 }
 .container2{
-    background-color: darkgray;
+    background-color: white;
     grid-column-start: 2;
     grid-row-start: 2;
     border-radius: 15px;
@@ -29,9 +30,11 @@ body{
     font-size: 4vh; 
     border-radius: 15px;
     border-style: solid;
+    /*line-height: 7vh;*/
+    text-align: center;
 }
 .container4{
-    background-color: darkgray;
+    background-color: white;
     grid-column-start: 2;
     grid-row-start: 4; 
     width: 100%;
