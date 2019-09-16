@@ -8,13 +8,18 @@ var smallText = document.getElementById('smallText');
 var circleButton = document.getElementById('circleButton');
 
 var randomNum = Math.floor(Math.random() * 10);
-/*var randomNum = function getRandom(){
-    var ran = Math.floor(Math.random() * 10);
-    if (ran = 0){
-        var ran = Math.floor(Math.random() * 10);
-        getRandom();}
-    else randomNum = ran;
-    }*/
+
+console.log (randomNum);
+
+function checkRandom (){
+    if (randomNum == 9){
+        randomNum = Math.floor(Math.random() * 10);
+        console.log(randomNum);
+        checkRandom();
+}}
+
+checkRandom();
+
 var randomNumDis = randomNum;
 
 
@@ -45,14 +50,8 @@ function printSymbols(n = randomNum){
         }      
         }
     }
-    function testIfZero(randomNum){
-        if (randomNum = 0){
-            randomNum = randomNum + 1;
-        }
-        else {
-            randomNum = randomNum;
-        }
-    }
+  
+    
 // Render states
 function render(){
 
