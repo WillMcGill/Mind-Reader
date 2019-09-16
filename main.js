@@ -106,7 +106,7 @@ function render(){
 
         case "end":
             console.log(randomNum - 1);
-            largeText.innerHTML = symbolArray[randomNum];
+            largeText.innerHTML = 'Your symbol is ' + symbolArray[randomNum];
             var squareButton = document.getElementById('squareButton');
             squareButton.style.display = "none";
             smallText.style.display = 'none';
