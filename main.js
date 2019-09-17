@@ -1,6 +1,6 @@
 
 var stateArray = ["start", "pick", "add", "sub", "reveal", "end"];
-var symbolArray = ["!", "@", "#", "$", "%", "^", "&", "*", ")("];
+var symbolArray = ["!", "@", "#", "$", "%", "^", "&", "*", ")(", "><"];
 var counter = 0;
 
 var largeText = document.getElementById('largeText');
@@ -23,7 +23,7 @@ checkRandom();
 
 function isZero(){                                  // check if random number is 0, if so, set to 8
     if (randomNum == 0){
-        randomNum = 8;
+        randomNum = 9;
         return randomNum;
     }
     else {randomNum = randomNum - 1;
@@ -37,10 +37,10 @@ var n = randomNum;
 
 function printSymbols(n = randomNum){
     
-    for (var i = 1; i < 100; i++){                      // set function to run 99 times
+    for (var i = 0; i < 100; i++){                      // set function to run 100 times
         //console.log(n);
         
-        if (n < 8 && n >= 0){                           // increment random number
+        if (n < 9 && n >= 0){                           // increment random number
             console.log(i + ' = ' + symbolArray[n]);
             var newLine = document.createElement("div");
             var resultnode = document.createTextNode(i + ' = ' + symbolArray[n]);
@@ -48,7 +48,8 @@ function printSymbols(n = randomNum){
             document.getElementById("largeText").appendChild(newLine);
             ++n;        
         }
-        else if (n = 8){                                // reset random number to 0, cannot be higher than 8
+        else if (n = 9){                                // reset random number to 0, cannot be higher than 9
+            console.log(i);
             console.log(i + ' = ' + symbolArray[n]);
             var newLine = document.createElement("div");
             var resultnode = document.createTextNode(i + ' = ' + symbolArray[n]);
@@ -68,6 +69,7 @@ function render(){
             largeText.innerHTML = 'I can read your mind';
             var squareButton = document.getElementById('squareButton');
             squareButton.style.display = "none";
+            smallText.style.display = 'none';
             circleButton.innerHTML = 'Start';
             break;
 
@@ -102,9 +104,9 @@ function render(){
 
         case "reveal":
             console.log('reveal');
-            largeText.style.display = "none";
-            largeText.style.display = "block";
-            document.getElementById.resultnode.innerHTML = printSymbols();
+            //largeText.style.display = 'none';
+            //largeText.style.display = 'block';
+            printSymbols();
             var squareButton = document.getElementById('squareButton');
             squareButton.innerHTML = 'Next';
             smallText.innerHTML = 'Find your new number.  Note the symbol beside the number';
