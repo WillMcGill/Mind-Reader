@@ -21,12 +21,12 @@ function checkRandom (){                            // check is random number is
 
 checkRandom();
 
-function isZero(){                                  // check if random number is 0, if so, set to 8
+function isZero(){                                  // check if random number is 0, if so, set to 9
     if (randomNum == 0){
         randomNum = 9;
         return randomNum;
     }
-    else {randomNum = randomNum - 1;
+     else {randomNum = randomNum;
         return randomNum;
     };
 }
@@ -40,7 +40,8 @@ function printSymbols(n = randomNum){
     for (var i = 0; i < 100; i++){                      // set function to run 100 times
         //console.log(n);
         
-        if (n < 9 && n >= 0){                           // increment random number
+        if (n < 8 && n >= 0){                           // increment random number
+            console.log(i);
             console.log(i + ' = ' + symbolArray[n]);
             var newLine = document.createElement("div");
             var resultnode = document.createTextNode(i + ' = ' + symbolArray[n]);
@@ -114,7 +115,7 @@ function render(){
             break;
 
         case "end":
-            console.log(randomNum - 1);
+            console.log(randomNum - 2);
             largeText.innerHTML = 'Your symbol is:   ' + symbolArray[isZero()];
             var squareButton = document.getElementById('squareButton');
             squareButton.style.display = "none";
